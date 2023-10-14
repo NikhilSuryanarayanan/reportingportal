@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Submission Form</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Style the body with a background color */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Center the form vertically and horizontally */
+        .form-container {
+            width: 80%; /* Adjust the width as desired */
+            max-width: 400px; /* Limit the maximum width */
+            margin: 100px auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Style the heading */
+        h2 {
+            color: #007BFF;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Style form labels */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Style input fields */
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            color: #555;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Style the "Status" select */
+        select {
+            background-color: #f9f9f9;
+        }
+
+        /* Style the "Submit" button */
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Style the "Submit" button on hover */
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style the "View Submitted Data" button */
+        button#viewDataButton {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Style the "View Submitted Data" button on hover */
+        button#viewDataButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Dump Me For EOD Report</h2>
+        <form action="submit.php" method="post">
+            <label for="ticket_number">Ticket Number:</label>
+            <input type="text" id="ticket_number" name="ticket_number" required>
+
+            <label for="ip_address">IP Address:</label>
+            <input type="text" id="ip_address" name="ip_address" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="Open">Open</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Closed">Closed</option>
+            </select>
+
+            <label for="panel_version">Panel Version:</label>
+            <input type="text" id="panel_version" name="panel_version" required>
+
+            <label for="solution">Solution:</label>
+            <textarea id="solution" name="solution" rows="4" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- Add the "View Submitted Data" button -->
+        <button id="viewDataButton" onclick="window.location.href='submitteddata.php';">View Submitted Data</button>
+    </div>
+</body>
+</html>
